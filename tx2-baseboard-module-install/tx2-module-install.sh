@@ -15,10 +15,10 @@ fi
 
 # update modules
 echo "Updating kernel modules..."
-if [ -d "/lib/modules/4.9.140-tegra" ]; then
-    rm -r "/lib/modules/4.9.140-tegra"
+if [ -d "/lib/modules/4.9.140-rt93-tegra" ]; then
+    rm -r "/lib/modules/4.9.140-rt93-tegra"
 fi
-if ! cp -r "$RES_DIR/modules-4.9.140-tegra" "/lib/modules/4.9.140-tegra"
+if ! cp -r "$RES_DIR/modules-4.9.140-rt93-tegra" "/lib/modules/4.9.140-rt93-tegra"
 then
     INST_STATUS=1
     echo "Unable to update kernel modules."
@@ -36,10 +36,10 @@ echo -n -e "127.0.0.1 localhost\n127.0.0.1 antmicro-tx2-baseboard\n" > /etc/host
 
 # update linux-headers
 echo "Updating linux-headers..."
-if ! cp -r "$RES_DIR/linux-headers-4.9.140-tegra" "/usr/src/"
+if ! cp -r "$RES_DIR/linux-headers-4.9.140-rt93-tegra" "/usr/src/"
 then
     INST_STATUS=1
-    echo "Unable to copy linux-headers-4.9.140-tegra"
+    echo "Unable to copy linux-headers-4.9.140-rt93-tegra"
 fi
 
 sync
